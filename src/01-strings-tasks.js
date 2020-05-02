@@ -53,7 +53,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  const str = `Hello, ${firstName} ${lastName}`;
+  const str = `Hello, ${firstName} ${lastName}!`;
   return str;
 }
 
@@ -69,8 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  */
 function extractNameFromTemplate(value) {
   const arr = value.split(' ').slice(1).join(' ');
-  const str = `${arr}`;
-  return str.replace(/!/g, '');
+  return arr.replace(/!/g, '');
 }
 
 
@@ -185,7 +184,8 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return [str];
+  const eMailArr = str.split(';');
+  return eMailArr;
 }
 
 /**
