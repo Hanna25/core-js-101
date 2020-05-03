@@ -21,13 +21,16 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === value) {
-      return i;
+  let x = -1;
+  arr.map((currentValue, index) => {
+    if (currentValue === value) {
+      x = index;
     }
-  }
-  return -1;
+    return '';
+  });
+  return x;
 }
+
 
 /**
  * Generates an array of odd numbers of the specified length
@@ -205,8 +208,12 @@ function insertItem(/* arr, item, index */) {
  *    [ 1, 3, 4, 5 ], 2 => [ 1, 3 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  const arr2 = [];
+  for (let i = 0; i < n; i += 1) {
+    arr2.push(arr[i]);
+  }
+  return arr2;
 }
 
 
