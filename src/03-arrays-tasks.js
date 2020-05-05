@@ -43,12 +43,8 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(len) {
-  const arr = [];
-  for (let i = 1; arr.length < len; i += 2) {
-    arr.push(i);
-  }
-  return arr;
+function generateOdds(/* len */) {
+  throw new Error('Not implemented');
 }
 
 
@@ -65,11 +61,8 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  const duplicateArr = [];
   if (arr.length !== 0) {
-    for (let i = 0; i < arr.length; i += 1) {
-      duplicateArr.push(arr[i]);
-    }
+    const duplicateArr = arr.map((currentValue) => currentValue);
     return arr.concat(duplicateArr);
   }
   return arr;
@@ -88,14 +81,15 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  const positiveNum = [];
+  const arrayOfPositivesNum = [];
   if (arr.length !== 0) {
-    for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] > 0) {
-        positiveNum.push(arr[i]);
+    arr.map((currentValue) => {
+      if (currentValue > 0) {
+        arrayOfPositivesNum.push(currentValue);
       }
-    }
-    return positiveNum;
+      return '';
+    });
+    return arrayOfPositivesNum;
   }
   return arr;
 }
@@ -113,11 +107,12 @@ function getArrayOfPositives(arr) {
  */
 function getArrayOfStrings(arr) {
   const str = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (typeof (arr[i]) === 'string') {
-      str.push(arr[i]);
+  arr.map((currentValue) => {
+    if (typeof currentValue === 'string') {
+      str.push(currentValue);
     }
-  }
+    return str;
+  });
   return str;
 }
 
@@ -136,11 +131,12 @@ function getArrayOfStrings(arr) {
  */
 function removeFalsyValues(arr) {
   const arr2 = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i]) {
-      arr2.push(arr[i]);
+  arr.map((currentValue) => {
+    if (currentValue) {
+      arr2.push(currentValue);
     }
-  }
+    return '';
+  });
   return arr2;
 }
 
@@ -157,9 +153,10 @@ function removeFalsyValues(arr) {
  */
 function getUpperCaseStrings(arr) {
   const arr2 = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    arr2.push(arr[i].toUpperCase());
-  }
+  arr.map((currentValue) => {
+    arr2.push(currentValue.toUpperCase());
+    return '';
+  });
   return arr2;
 }
 
@@ -176,10 +173,11 @@ function getUpperCaseStrings(arr) {
  */
 function getStringsLength(arr) {
   const num = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    const numLength = arr[i].length;
+  arr.map((currentValue) => {
+    const numLength = currentValue.length;
     num.push(numLength);
-  }
+    return '';
+  });
   return num;
 }
 
@@ -210,9 +208,12 @@ function insertItem(/* arr, item, index */) {
  */
 function getHead(arr, n) {
   const arr2 = [];
-  for (let i = 0; i < n; i += 1) {
-    arr2.push(arr[i]);
-  }
+  arr.map((currentValue, index) => {
+    if (index < n) {
+      arr2.push(currentValue);
+    }
+    return arr2;
+  });
   return arr2;
 }
 
@@ -227,8 +228,8 @@ function getHead(arr, n) {
  *    [ 1, 3, 4, 5 ], 2  => [ 4, 5 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  return arr.slice(arr.length - n);
 }
 
 
@@ -267,8 +268,13 @@ function toCsvText(/* arr */) {
  *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-function toArrayOfSquares(/* arr */) {
-  throw new Error('Not implemented');
+function toArrayOfSquares(arr) {
+  const sum = [];
+  arr.map((currentValue) => {
+    sum.push(currentValue * currentValue);
+    return '';
+  });
+  return sum;
 }
 
 
@@ -423,8 +429,15 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurences(arr, item) {
+  const matchingItems = [];
+  arr.map((currentValue) => {
+    if (currentValue === item) {
+      matchingItems.push(currentValue);
+    }
+    return '';
+  });
+  return matchingItems.length;
 }
 
 /**
